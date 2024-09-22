@@ -21,3 +21,23 @@ git clone https://github.com/Maherilaza/rust-shellcode-injection
 cd rust-shellcode-injection
 
 cargo build --release
+```
+
+**How to use**
+```rust
+
+use shellcode::utils::{*};
+fn main() {
+
+    let shellcode: [u8; SHELLOCODE_LEN] = [
+        /*shellcode*/
+    ];
+
+    let mut my_shellcode : Ushellcode = Ushellcode::new_shellcod(
+        shellcode
+    );
+
+    my_shellcode.inject();
+}
+
+```
