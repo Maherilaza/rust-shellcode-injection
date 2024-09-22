@@ -1,4 +1,4 @@
-use shellcode_injector::utils::{*};
+use shellcode::utils::{*};
 fn main() {
     
     // https://github.com/boku7/x64win-DynamicNoNull-WinExec-PopCalc-Shellcode
