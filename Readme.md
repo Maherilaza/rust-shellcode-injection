@@ -1,5 +1,10 @@
 ### Rust-shellcode-injection
 
+![Rust](https://img.shields.io/badge/made%20with-Rust-red)
+![Platform](https://img.shields.io/badge/platform-windows-blueviolet)
+![License](https://img.shields.io/github/license/joaoviictorti/RustRedOps)
+</br>
+
 A simple example of shellcode injection in Rust using [[winapi]](https://docs.rs/winapi/0.3.9/winapi/)
 
 * The Notepad process is created in suspended mode.
