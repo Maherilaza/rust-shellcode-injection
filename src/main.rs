@@ -1,6 +1,6 @@
-use shellcode::utils::{*};
+use shellcode::utils::*;
 fn main() {
-    
+
     // https://github.com/boku7/x64win-DynamicNoNull-WinExec-PopCalc-Shellcode
 
     const SHELLCODE: [u8; SHELLOCODE_LEN] = [

