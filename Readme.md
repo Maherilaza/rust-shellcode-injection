@@ -38,7 +38,7 @@ fn main() {
         /*shellcode*/
     ];
 
-    let mut my_shellcode : Ushellcode = Ushellcode::new_shellcod(
+    let mut my_shellcode : Ushellcode = Ushellcode::new_shellcode(
         shellcode
     );
 
