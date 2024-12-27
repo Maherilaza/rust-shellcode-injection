@@ -9,13 +9,17 @@
     CloseHandle()
 */
 
-pub mod utils;
 mod inject;
+pub mod utils;
 
 #[macro_export]
 macro_rules! error_occured {
     ($obj_name : expr) => {
-        println!("{} [{}] {}", "[-] An error occurred".red(), $obj_name.red(), 
-    unsafe{ GetLastError() })
-    }
+        println!(
+            "{} [{}] {}",
+            "[-] An error occurred".red(),
+            $obj_name.red(),
+            unsafe { GetLastError() }
+        )
+    };
 }
